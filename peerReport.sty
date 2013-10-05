@@ -1,8 +1,12 @@
 % PEER report style. 
 % This file is adapted from the unofficial Stanford University PhD thesis style
+%
+% Version 0.11:
+% Set margin to 1 inch on all sides
 % 
 % Original version 0.1 (Shrey Kumar Shahi, Sept 18 2013)
 % - Modified the suthesis-2e.sty to follow PEER guidelines
+
 
 %%%%%
 %%%%%   PRELIMS
@@ -29,11 +33,24 @@ suthesis documentation.}}{}
 
 \RequirePackage{setspace}
 \RequirePackage{titlesec}
+\usepackage[margin=1in, footskip=42pt]{geometry}
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{Times New Roman}
+\setsansfont[Ligatures=TeX]{Arial}
+\newfontfamily\headingfont[Ligatures=TeX]{Arial}
+
+\usepackage[font={sf,bf,footnotesize} , format=hang, labelsep=quad]{caption}
 
 % Use 1.3 times the normal baseline-to-baseline skip
 \setstretch{1.3}
 
-\titleformat{\chapter}{\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
+\titleformat{\chapter}{\headingfont\LARGE\bfseries}{\thechapter}{1em}{}
+\titleformat{\section}{\headingfont\normalsize\bfseries\uppercase}{\thesection}{1em}{}
+\titleformat{\subsection}{\headingfont\normalsize\bfseries}{\thesubsection}{1em}{}
+%\titleformat{\subsubsection}{\headingfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+%\titleformat{\subsubsubsection}{\headingfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+
+
 \renewcommand{\contentsname}{\hfill \uppercase{Contents} \hfill}
 \renewcommand{\listfigurename}{\hfill \uppercase{List of Figures} \hfill}
 \renewcommand{\listtablename}{\hfill \uppercase{List of Tables} \hfill}
@@ -185,14 +202,14 @@ smaller print.
 
 \@twosidetrue
 
-\setlength\oddsidemargin   {36.1\p@}
-\setlength\evensidemargin  {36.1\p@}
-\setlength\marginparwidth  {40\p@}
+%\setlength\oddsidemargin   {36.1\p@}
+%\setlength\evensidemargin  {36.1\p@}
+%\setlength\marginparwidth  {40\p@}
 
-\marginparsep 10pt
+%\marginparsep 10pt
 
-\topmargin 0pt \headsep .5in
-\textheight 8.1in \textwidth 6in
+%\topmargin 0pt \headsep .5in
+%\textheight 8.1in \textwidth 6in
 
 % Disallow page breaks at hyphens (this will give some underfull vbox's,
 % so an alternative is to use \brokenpenalty=100 and manually search
@@ -223,34 +240,36 @@ smaller print.
   \space \number\the\year}
 
 
+
 \def\titlep{%
         \thispagestyle{empty}%
         \null\vskip1in%
         \begin{center}
-                \LARGE{\textbf{\@title}}
+                \sf\LARGE{\textbf{\@title}}
         \end{center}
 
         \vfill
         \begin{center}
-                \rm \textbf{\@authorA}\\
+              \begin{large}
+                \sf \textbf{\@authorA}\\
                 \@deptA\\
                 \@institutionA\\
                 \vspace{10pt}
                 \textbf{\@authorB}\\
                 \@deptB\\
                 \@institutionB\
+             \end{large}
         \end{center}
 
         \vfill
         \begin{center}
-        	     \begin{footnotesize}
-                \rm PEER Report \@reportnumber\\
+                \sf PEER Report \@reportnumber\\
                 Pacific Earthquake Engineering Research Center\\
                 Headquarters at the University of California, Berkeley\\
                 \@submitdate\\
-                \end{footnotesize}
         \end{center}\vskip.5in\newpage}
-
+        
+        
 \def\beforepreface{
         \pagenumbering{roman}
         \pagestyle{plain}

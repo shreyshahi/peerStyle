@@ -1,6 +1,9 @@
 % PEER report style. 
 % This file is adapted from the unofficial Stanford University PhD thesis style
 %
+% Version 0.12
+% Change bibliography to reference and compress the bibliography
+%
 % Version 0.11:
 % Set margin to 1 inch on all sides
 % 
@@ -40,7 +43,9 @@ suthesis documentation.}}{}
 \newfontfamily\headingfont[Ligatures=TeX]{Arial}
 
 \usepackage[font={sf,bf,footnotesize} , format=hang, labelsep=quad]{caption}
-
+\usepackage[titletoc]{appendix}
+\usepackage{natbib}
+\setlength{\bibsep}{0.0pt}
 % Use 1.3 times the normal baseline-to-baseline skip
 \setstretch{1.3}
 
@@ -292,6 +297,7 @@ smaller print.
 
 % Redefine \thebibliography to go to a new page and put an entry in the
 % table of contents
+\renewcommand{\bibname}{References}
 \let\@ldthebibliography\thebibliography
 \renewcommand{\thebibliography}[1]{\newpage
                 \@ldthebibliography{#1}%

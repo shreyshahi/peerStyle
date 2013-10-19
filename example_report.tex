@@ -61,11 +61,14 @@
 \include{chapter8}
 % and the end material
 
-\appendix
+\begin{appendices}
+% Need to change title style for Appendices
+\titleformat{\chapter}{\headingfont\LARGE\bfseries}{\appendixname \hspace{3.3pt} \thechapter}{1em}{}
 \include{AppendixA}
 \include{AppendixB}
 \include{AppendixC}
 \include{AppendixD}
+\end{appendices}
 
 % bibliography.tex should include either 
 % \bibliographystyle{...}
